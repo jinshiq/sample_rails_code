@@ -1,0 +1,23 @@
+<% if @is_index.to_s.downcase == "true" %>
+  <plain>
+    
+    $("#friend-status-#{@user.id}").
+       html("#{escape_javascript(render('users/unfriend', user: @user, 
+                                         is_index: @is_index))}");
+
+  </plain>
+<% else %>
+  <plain>
+    
+    $("#friend-status-#{@user.id}").closest("li").fadeOut(300, function() {
+      $(this).remove();
+      $(window).trigger('contentSizeReduced');
+    });
+
+  </plain>
+<% end %>
+<plain>
+  
+  $("#friend-count").html("(#{current_user.friends.count})");
+
+</plain>

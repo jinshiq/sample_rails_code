@@ -1,0 +1,17 @@
+<% if @is_index.to_s.downcase == "true" %>
+  <plain>
+    
+    $("#friend-status-#{@user.id}").
+        html("#{escape_javascript(render('users/request_sent'))}");
+
+  </plain>
+<% else %>
+  <plain>
+    
+    $("#friend-status-#{@user.id}").closest("li").fadeOut(300, function() {
+      $(this).remove();
+      $(window).trigger('contentSizeReduced');
+    });
+
+  </plain>
+<% end %>

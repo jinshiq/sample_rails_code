@@ -1,0 +1,10 @@
+<li class="<%= ("new" if @new_count > notification_counter) %> notification">
+  <div class="main-message">
+    <%= notification.message %>
+  </div>
+  <% if notification.notification_type == "request" %>
+    <div class="sub-message">
+      <%= link_to "See your Friend Requests", friend_requests_path(current_user) %>
+    </div>
+  <% end %>
+</li>

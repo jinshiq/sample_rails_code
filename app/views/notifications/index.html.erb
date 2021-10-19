@@ -1,0 +1,12 @@
+<% provide(:title, "Your Notifications") %>
+<div class="notifications">
+  <h1>Your Notifications</h1>
+  <ul class="notification-list">
+    <%= render @notifications %>
+    <% if @notifications.empty? %>
+      <li class="empty-list">
+        <%= "You have no Notifications"  %>
+      </li>
+    <% end %>
+  </ul>
+</div>
